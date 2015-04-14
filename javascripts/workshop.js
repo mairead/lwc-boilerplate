@@ -48,7 +48,8 @@ var gridHelper = new THREE.GridHelper( size, step );
 gridHelper.position = new THREE.Vector3( 5, -5, 0 );
 scene.add( gridHelper );
 
-//Add cube Geometry
+//Add sphere Geometry
+
 
 
 //Changing lighting

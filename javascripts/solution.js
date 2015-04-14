@@ -48,7 +48,7 @@ var gridHelper = new THREE.GridHelper( size, step );
 gridHelper.position = new THREE.Vector3( 5, -5, 0 );
 scene.add( gridHelper );
 
-//Add cube Geometry
+//Add sphere Geometry
 //var material = new THREE.MeshBasicMaterial( { color: 0x00FF00 } );
 var material = new THREE.MeshLambertMaterial( { color: 0x00FF00 } );
 var geometry = new THREE.SphereGeometry(4,20,20);
