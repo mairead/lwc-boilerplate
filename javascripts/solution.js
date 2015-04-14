@@ -70,18 +70,20 @@ material.needsUpdate = true;
 camera.position.set(30, 10, 10);
 camera.lookAt(scene.position);
 
+camera.position.set(30, 10, 10);
+camera.lookAt(mesh.position);
+
 //Call to render has to be added last 
 renderer.render(scene, camera);
 
-var pos = 10;
 //Add animation loop
+var pos = 10;
 function render() {
 	pos = pos + 1;
 	//Change any Three.js property 
 	camera.position.set(pos, 10, 10);
-  
 	renderer.render(scene, camera);
 	requestAnimationFrame(render);
 }
-render();
+//render();
 
