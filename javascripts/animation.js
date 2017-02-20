@@ -49,25 +49,42 @@ gridHelper.position = new THREE.Vector3( 5, -5, 0 );
 scene.add( gridHelper );
 
 //Add sphere Geometry
-//var material = new THREE.MeshBasicMaterial( { color: 0x00FF00 } );
-var material = new THREE.MeshPhongMaterial( { color: 0x00FF00 } );
-//var material = new THREE.MeshLambertMaterial( { color: 0x00FF00 } );
-//var material = new THREE.MeshNormalMaterial(  );
+var material = new THREE.MeshPhongMaterial( { color: 0xCCCCCC } );
+//var material = new THREE.MeshLambertMaterial( { color: 0xCCCCCC } );
 var geometry = new THREE.SphereGeometry(4,20,20);
 var mesh = new THREE.Mesh( geometry, material );
 mesh.position.set(10, 2, 0);
 scene.add( mesh );
 
 //Changing lighting
-
+spotlight = new THREE.SpotLight(0xFFFFFF);
+spotlight.position.set(200, 100, 0);
+spotlight.lookAt(mesh);
+spotlight.angle = Math.PI/3;
+spotlight.intensity = 0.5;
+spotlight.distance = 0;
+scene.add(spotlight);
+material.needsUpdate = true;
 
 //Moving camera
+camera.position.set(30, 10, 10);
+camera.lookAt(scene.position);
 
+camera.position.set(30, 10, 10);
+camera.lookAt(mesh.position);
 
 //Call to render has to be added last
 renderer.render(scene, camera);
 
-
 //Add animation loop
+var pos = 10;
+function render() {
+  pos = pos + 1;
+  //Change any Three.js property
+  camera.position.set(pos, 10, 10);
+  renderer.render(scene, camera);
+  requestAnimationFrame(render);
+}
+render();
 
 
